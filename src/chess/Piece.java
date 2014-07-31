@@ -1,19 +1,18 @@
 package chess;
 
-import java.util.LinkedList;
+import java.util.HashSet;
+
 
 public interface Piece {
 	
+	public enum Color{WHITE,BLACK;}
+	public enum ChessPieceType{KING,QUEEN,ROOK,NIGHT,BISHOP,PAWN;}
 	
-	public enum Color{
-		WHITE,BLACK;
-	}
-	public void setPiece(int x, int y, Color c);
 	public void setPosition(int x, int y);
 	public int getX();
 	public int getY();
-	public void setColor(Color c);
 	public Color getColor();
-	public LinkedList<Move> possibleMoves();
+	public HashSet<Move> possibleMoves();
+	public ChessPieceType getType();
 
 }

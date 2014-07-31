@@ -1,102 +1,27 @@
 package chess;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 
-public enum ChessPiece implements Piece {
-	KING(1){
-		
-		@Override
-		public LinkedList<Move> possibleMoves() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	},
+public abstract class ChessPiece implements Piece {
 	
-	QUEEN(8) {
-
-		@Override
-		public LinkedList<Move> possibleMoves() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	},
-	
-	ROOK(8) {
-
-		@Override
-		public LinkedList<Move> possibleMoves() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	},
-	
-	NIGHT(){
-
-		@Override
-		public LinkedList<Move> possibleMoves() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	},
-	
-	BISHOP(8){
-
-		@Override
-		public LinkedList<Move> possibleMoves() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	},
-	
-	PAWN(1){
-
-		@Override
-		public LinkedList<Move> possibleMoves() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	};
-	
-	private int maxRange;
+	private ChessPieceType type;
 	private int x;
 	private int y;
 	private Color c;
 	
-	private ChessPiece(int range) {
-		this();
-		this.maxRange = range;
-	}
-	
-	private ChessPiece() {
-		this.x = 0;
-		this.y = 0;
-		this.c = Color.WHITE;
-	}
-	
-	private ChessPiece(int x, int y) {
+	public ChessPiece(ChessPieceType piece, int x, int y, Color c) {
+		this.type = piece;
 		this.x = x;
 		this.y = y;
-		this.c = Color.WHITE;
+		this.c = c;
 	}
 	
-	@Override
-	public void setPiece(int x, int y, Color c){
-		this.setPosition(x, y);
-		this.setColor(c);
-	}
-
 	@Override
 	public void setPosition(int x, int y) {
 		// TODO Auto-generated method stub
 		this.x = x;
 		this.y = y;
+
 	}
 
 	@Override
@@ -110,30 +35,17 @@ public enum ChessPiece implements Piece {
 		// TODO Auto-generated method stub
 		return this.y;
 	}
-	
-	@Override
-	public void setColor(Color c) {
-		this.c = c;
-	}
 
 	@Override
 	public Color getColor() {
+		// TODO Auto-generated method stub
 		return this.c;
 	}
 	
-	public int getMaxRange() {
-		return this.maxRange;
+	public ChessPieceType getType() {
+		return this.type;
 	}
 	
-	
-	private HashSet<Move> straightLine(ChessPiece p){
-		HashSet<Move> moves = new HashSet<Move>();
-		return moves;
-	}
-	
-	private HashSet<Move> diagonalLine(ChessPiece p){
-		HashSet<Move> moves = new HashSet<Move>();
-		return moves;
-	}
+	public abstract HashSet<Move> possibleMoves();
 
 }
