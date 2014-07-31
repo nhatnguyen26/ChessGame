@@ -1,9 +1,20 @@
 package Chess;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 
 public enum ChessPiece implements Piece {
-	KING(){
+	KING(1){
+		
+		@Override
+		public LinkedList<Move> possibleMoves() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	},
+	
+	QUEEN(8) {
 
 		@Override
 		public LinkedList<Move> possibleMoves() {
@@ -13,7 +24,7 @@ public enum ChessPiece implements Piece {
 		
 	},
 	
-	QUEEN() {
+	ROOK(8) {
 
 		@Override
 		public LinkedList<Move> possibleMoves() {
@@ -23,7 +34,7 @@ public enum ChessPiece implements Piece {
 		
 	},
 	
-	ROOK() {
+	NIGHT(){
 
 		@Override
 		public LinkedList<Move> possibleMoves() {
@@ -33,7 +44,7 @@ public enum ChessPiece implements Piece {
 		
 	},
 	
-	KNIGHT(){
+	BISHOP(8){
 
 		@Override
 		public LinkedList<Move> possibleMoves() {
@@ -43,17 +54,7 @@ public enum ChessPiece implements Piece {
 		
 	},
 	
-	BISHOP(){
-
-		@Override
-		public LinkedList<Move> possibleMoves() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	},
-	
-	PAWN(){
+	PAWN(1){
 
 		@Override
 		public LinkedList<Move> possibleMoves() {
@@ -63,9 +64,15 @@ public enum ChessPiece implements Piece {
 		
 	};
 	
+	private int maxRange;
 	private int x;
 	private int y;
 	private Color c;
+	
+	private ChessPiece(int range) {
+		this();
+		this.maxRange = range;
+	}
 	
 	private ChessPiece() {
 		this.x = 0;
@@ -112,6 +119,20 @@ public enum ChessPiece implements Piece {
 	@Override
 	public Color getColor() {
 		return this.c;
+	}
+	
+	public int getMaxRange() {
+		return this.maxRange;
+	}
+	
+	private HashSet<Move> straightLine(ChessPiece p){
+		HashSet<Move> moves = new HashSet<Move>();
+		return moves;
+	}
+	
+	private HashSet<Move> diagonalLine(ChessPiece p){
+		HashSet<Move> moves = new HashSet<Move>();
+		return moves;
 	}
 
 }
