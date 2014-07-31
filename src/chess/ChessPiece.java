@@ -1,4 +1,4 @@
-package Chess;
+package chess;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -124,6 +124,7 @@ public enum ChessPiece implements Piece {
 	public int getMaxRange() {
 		return this.maxRange;
 	}
+	
 	
 	private HashSet<Move> straightLine(ChessPiece p){
 		HashSet<Move> moves = new HashSet<Move>();

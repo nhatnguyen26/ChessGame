@@ -1,10 +1,10 @@
-package Chess;
+package chess;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Chess.Piece.Color;
+import chess.Piece.Color;
 
 public class ChessPieceTest {
 
@@ -20,6 +20,11 @@ public class ChessPieceTest {
 			System.out.print(p);
 			System.out.println(p.getMaxRange());
 		}
+		
+		ChessPiece king1 = ChessPiece.KING;
+		ChessPiece king2;
+		(king2 = ChessPiece.KING).setColor(Color.BLACK);
+		System.out.print(king1 == king2);
 	}
 
 }
